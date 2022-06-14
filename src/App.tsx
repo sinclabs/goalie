@@ -1,9 +1,17 @@
 import type { Todo } from "./types"
 
 import React, { useEffect, useState } from "react"
-import { MantineProvider, Space, Button, Title, Box } from "@mantine/core"
+import {
+  MantineProvider,
+  Space,
+  Button,
+  Title,
+  Box,
+  MultiSelect,
+  SimpleGrid,
+} from "@mantine/core"
 import { invoke } from "@tauri-apps/api/tauri"
-import { CirclePlus } from "tabler-icons-react"
+import { CirclePlus, Plus, At } from "tabler-icons-react"
 
 import { Todo as TodoComponent } from "./Todo"
 
@@ -27,9 +35,33 @@ function App() {
       withNormalizeCSS
     >
       <div className="App">
-        <header className="App-header">
-          <div>
-            <Title order={2}>Today's goals</Title>
+        <div className="App-header">
+          <Title order={2}>Today's goals</Title>
+          <Box
+            sx={{
+              textAlign: "initial",
+            }}
+          >
+            <SimpleGrid cols={2}>
+              <MultiSelect
+                data={[{ value: "Someproject", label: "Someproject" }]}
+                placeholder={"Select projects to filter"}
+                searchable
+                clearable
+                nothingFound="Nothing found"
+                icon={<Plus size={"15"} />}
+                variant={"default"}
+              />
+              <MultiSelect
+                data={[{ value: "Place", label: "Someplace" }]}
+                placeholder={"Select contexts to filter"}
+                searchable
+                clearable
+                nothingFound="Nothing found"
+                icon={<At size={"15"} />}
+                variant={"default"}
+              />
+            </SimpleGrid>
             <Space h="md" />
             <Box
               sx={{
@@ -53,8 +85,8 @@ function App() {
             >
               Add new goal
             </Button>
-          </div>
-        </header>
+          </Box>
+        </div>
       </div>
     </MantineProvider>
   )
