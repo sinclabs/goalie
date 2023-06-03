@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "name": "🎯 Root",
+      "path": "../"
+    },
+    {
+      "name": "✨ Interface",
+      "path": "../src"
+    },
+    {
+      "name": "⚓ Core",
+      "path": "../src-tauri/src"
+    }
+  ],
+  "settings": {}
+}
