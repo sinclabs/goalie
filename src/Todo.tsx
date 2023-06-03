@@ -70,7 +70,9 @@ const Todo: FC<{ todo: TodoType }> = ({ todo }) => (
     <Checkbox
       label={<TodoLabel todo={todo} />}
       checked={todo.is_complete}
-      onChange={() => {}}
+      onChange={() => {
+        todo.is_complete = !todo.is_complete
+      }}
     />
   </div>
 )
